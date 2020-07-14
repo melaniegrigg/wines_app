@@ -12,7 +12,6 @@ class Api::WinesController < ApplicationController
 
   def create
     @wine = Wine.new(
-      id: params[:id],
       vintner: params[:vintner],
       varietal: params[:varietal],
       vintage: params[:vintage],
@@ -26,7 +25,7 @@ class Api::WinesController < ApplicationController
 
   def update
     @wine = Wine.find_by(id: params[:id])
-    @wine.varietal = params[:varitel] || @wine.varietal
+    @wine.varietal = params[:varietel] || @wine.varietal
     @wine.vintage = params[:vintage] || @wine.vintage
     @wine.vintner = params[:vintner] || @wine.vintner
     @wine.region = params[:region] || @wine.region

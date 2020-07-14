@@ -1,4 +1,4 @@
-{
+{ 
   id: wine.id,
   vintner: wine.vintner,
   varietal: wine.varietal,

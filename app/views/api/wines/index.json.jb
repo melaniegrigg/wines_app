@@ -1,4 +1,3 @@
 @wines.map do |wine|
-{
   render partial: 'wine.json.jb', locals: {wine: wine}
-}
+end
