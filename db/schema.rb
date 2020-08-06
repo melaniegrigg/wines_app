@@ -10,20 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_191114) do
+ActiveRecord::Schema.define(version: 2020_08_06_005918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "wines", force: :cascade do |t|
-    t.string "varietal"
-    t.string "region"
-    t.integer "vintage"
-    t.text "tasting_notes"
-    t.string "pairings"
+  create_table "ratings", force: :cascade do |t|
+    t.decimal "rating", precision: 2, scale: 1
+    t.string "notes"
+    t.string "vintner"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "vintner"
+    t.integer "user_id"
+    t.integer "wine_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "wine_tags", force: :cascade do |t|
+    t.integer "wine_id"
+    t.integer "tags_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "wines", force: :cascade do |t|
+    t.string "varietal"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "color"
   end
 
 end

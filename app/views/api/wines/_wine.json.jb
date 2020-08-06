@@ -1,9 +1,5 @@
 { 
   id: wine.id,
-  vintner: wine.vintner,
   varietal: wine.varietal,
-  vintage: wine.vintage,
-  pairings: wine.pairings,
-  region: wine.region,
-  tasting_notes: wine.tasting_notes
+  color: wine.color
 }

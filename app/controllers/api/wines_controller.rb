@@ -12,12 +12,8 @@ class Api::WinesController < ApplicationController
 
   def create
     @wine = Wine.new(
-      vintner: params[:vintner],
       varietal: params[:varietal],
-      vintage: params[:vintage],
-      pairings: params[:pairings],
-      region: params[:region],
-      tasting_notes: params[:tasting_notes]
+      color: params[:color]
       )
       @wine.save
       render 'show.json.jb'
@@ -26,11 +22,7 @@ class Api::WinesController < ApplicationController
   def update
     @wine = Wine.find_by(id: params[:id])
     @wine.varietal = params[:varietel] || @wine.varietal
-    @wine.vintage = params[:vintage] || @wine.vintage
-    @wine.vintner = params[:vintner] || @wine.vintner
-    @wine.region = params[:region] || @wine.region
-    @wine.pairings = params[:pairings] || @wine.pairings
-    @wine.tasting_notes = params[:tasting_notes] || @wine.tasting_notes
+    @wine.color = params[:color] || @wine.color
     @wine.save
     render 'show.json.jb'
   end
