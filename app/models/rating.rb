@@ -1,4 +1,3 @@
 class Rating < ApplicationRecord
-  belongs_to :user
-  belongs_to :wine
+ has_many :user_wines
 end

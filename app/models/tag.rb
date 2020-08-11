@@ -1,5 +1,6 @@
 class Tag < ApplicationRecord
-  has_many :users
+  has_many :user_wines
+  has_many :users, through: :user_wines
   has_many :wine_tags
-  has_many :es, through: :wine_tags
+  has_many :wines, through: :wine_tags
 end
