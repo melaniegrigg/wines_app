@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     post "/wines" => "wines#create"
     patch "/wines/:id" => "wines#update"
     delete "wines/:id" => "wines#destroy"
+
+    get "/tags" => "tags#index"
   end
 end
