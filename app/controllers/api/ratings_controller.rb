@@ -10,13 +10,30 @@ class Api::RatingsController < ApplicationController
   end
 
   def create
-    p current_user
-    @rating = Rating.new (
+    # p current_user
+    @rating = Rating.new(
       rating: params[:rating],
       notes: params[:notes],
-      vintner: params[:vintner]
-    )
+      vintner: params[:vintner])
     @rating.save
     render "show.json.jb"
   end
+
+  def update
+    @rating = Rating.find_by(id: params[:id])
+    @rating.update(
+      rating: params[:rating],
+      notes: params[:notes],
+      vintner: params[:vintner],
+    )
+    render 'show.json.jb'
+  end
+
+  def destroy
+    @rating = Rating.find_by(id: params[:id])
+    @rating.destroy
+
+    render json: {message: "Rating successfully destroyed from databasea"}
+  end
+
 end
