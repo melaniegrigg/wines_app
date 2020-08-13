@@ -8,4 +8,15 @@ class Api::RatingsController < ApplicationController
     @rating = Rating.find_by(id: params[:id])
     render "show.json.jb"
   end
+
+  def create
+    p current_user
+    @rating = Rating.new (
+      rating: params[:rating],
+      notes: params[:notes],
+      vintner: params[:vintner]
+    )
+    @rating.save
+    render "show.json.jb"
+  end
 end

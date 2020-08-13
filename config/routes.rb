@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
     get "/ratings" => "ratings#index"
     get "/ratings/:id" => "ratings#show"
+    post "/ratings" => "ratings#create"
   end
 end
