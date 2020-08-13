@@ -7,5 +7,10 @@ Rails.application.routes.draw do
     delete "wines/:id" => "wines#destroy"
 
     get "/tags" => "tags#index"
+    get "/tags/:id" => "tags#show"
+    post "/tags" => "tags#create"
+
+    post "/users" => "users#create"
+    post "/sessions" => "sessions#create"
   end
 end
