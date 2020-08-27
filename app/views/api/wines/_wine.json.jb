@@ -1,5 +1,1 @@
-{ 
-  id: wine.id,
-  varietal: wine.varietal,
-  color: wine.color
-}
+{wines: @wines}

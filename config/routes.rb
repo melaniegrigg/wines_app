@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get "/tags" => "tags#index"
     get "/tags/:id" => "tags#show"
     post "/tags" => "tags#create"
+    delete "/tags/:id" => "tags#destroy"
 
     post "/users" => "users#create"
     post "/sessions" => "sessions#create"
@@ -20,5 +21,7 @@ Rails.application.routes.draw do
     delete "/ratings/:id" => "ratings#destroy"
 
     get "/wine_tags" => "wine_tags#index"
+
+    get "/user_wines" => "user_wines#index"
   end
 end

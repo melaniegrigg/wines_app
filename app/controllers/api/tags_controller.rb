@@ -17,4 +17,9 @@ class Api::TagsController < ApplicationController
       render 'show.json.jb'
   end
 
+  def destroy
+    @tag = Tag.find_by(id: params[:id])
+    @tag.destroy
+    render json: {message: "You have successfully deleted the tag."}
+  end
 end

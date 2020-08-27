@@ -11,6 +11,7 @@ class Api::WinesController < ApplicationController
   end
 
   def create
+    # user_wines = current_user.wine_tags.where(status: "selected")
     @wine = Wine.new(
       varietal: params[:varietal],
       color: params[:color]
