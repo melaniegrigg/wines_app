@@ -1,6 +1,6 @@
 class Api::WineTagsController < ApplicationController
   def index
-    @wine_tags = WineTag.all
+    @wines = WineTag.where(tag_id: params[:tag_id])
     render 'index.json.jb'
   end
 end

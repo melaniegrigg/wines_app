@@ -1,13 +1,16 @@
 class Api::WinesController < ApplicationController
 
   def index
-    @wines = WineTag.find_by(wine_id: 10, tag_id: 2)
-    @wines = @wines.wine
+    @wines = WineTag.where(tag_id: params[:tag_id])
+    # user_wines = current_user.wine.wine_tags.where(status: "selected")
+    # @user_wines = user_wines.wines
+  
+    # @wines = @wines.wine
     render 'index.json.jb'
   end
 
   def show
-    @wine = Wine.find_by(id: params[:id])
+    @wine = WineTag.find_by[params[:id]]
     render 'show.json.jb'
   end
 

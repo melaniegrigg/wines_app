@@ -14,8 +14,8 @@ class Api::RatingsController < ApplicationController
     @rating = Rating.new(
       rating: params[:rating],
       notes: params[:notes],
-      vintner: params[:vintner],
-      user_wine: current_user.user_wine)
+      vintner: params[:vintner],)
+      # user_wine: current_user.user_wine)
     @rating.save
     render "show.json.jb"
   end
