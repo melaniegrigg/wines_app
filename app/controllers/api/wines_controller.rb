@@ -1,7 +1,8 @@
 class Api::WinesController < ApplicationController
 
   def index
-    @wines = Wine.joins(:tags).where(tags: {id:[params[:id]]})
+    @wines = WineTag.find_by(wine_id: 10, tag_id: 2)
+    @wines = @wines.wine
     render 'index.json.jb'
   end
 
