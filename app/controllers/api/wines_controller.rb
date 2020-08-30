@@ -1,16 +1,17 @@
 class Api::WinesController < ApplicationController
 
   def index
-    @wines = WineTag.where(tag_id: params[:tag_id])
+    puts params
+    # @wines = Tag.where(tag_id: params[:tag_id]).wines
+    @wines = Wine.joins(:tags).where(tags: { id: params[:tags] })
     # user_wines = current_user.wine.wine_tags.where(status: "selected")
     # @user_wines = user_wines.wines
-  
-    # @wines = @wines.wine
+    p @wines
     render 'index.json.jb'
   end
 
   def show
-    @wine = WineTag.find_by[params[:id]]
+    @wine = Wine.find_by[params[:id]]
     render 'show.json.jb'
   end
 
@@ -18,10 +19,14 @@ class Api::WinesController < ApplicationController
     # user_wines = current_user.wine_tags.where(status: "selected")
     @wine = Wine.new(
       varietal: params[:varietal],
-      color: params[:color]
+      color: params[:color],
+      user_wine: current_user.wine
       )
-      @wine.save
+      if @wine.save
       render 'show.json.jb'
+    else
+      render json: {errors: @post.errors.full_messages}, status: :bad_request
+    end
   end
 
   def update

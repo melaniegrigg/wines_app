@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     delete "/ratings/:id" => "ratings#destroy"
 
     get "/wine_tags" => "wine_tags#index"
+    post "/wine_tags" => "wine_tags#create"
 
     get "/user_wines" => "user_wines#index"
   end

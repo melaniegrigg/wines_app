@@ -1,5 +1,6 @@
 @tags.map do |tag| 
   {
     tag: tag.tag,
+    id: tag.id
   }
   end
