@@ -3,10 +3,9 @@ class Api::WinesController < ApplicationController
   def index
     puts params
     # @wines = Tag.where(tag_id: params[:tag_id]).wines
-    @wines = Wine.joins(:tags).where(tags: { id: params[:tags] })
+    @wines = Wine.joins(:tags).where(tags: { id: params[:tags] }).uniq
     # user_wines = current_user.wine.wine_tags.where(status: "selected")
     # @user_wines = user_wines.wines
-    p @wines
     render 'index.json.jb'
   end
 
