@@ -1,6 +1,6 @@
 @wines.map do |wine|
   {
     varietal: wine.varietal,
-    color: wine.color
+    type: wine.color
   }
 end

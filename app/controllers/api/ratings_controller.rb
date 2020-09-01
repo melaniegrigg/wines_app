@@ -15,8 +15,13 @@ class Api::RatingsController < ApplicationController
       rating: params[:rating],
       notes: params[:notes],
       vintner: params[:vintner],)
-      # user_wine: current_user.user_wine)
-    @rating.save
+      user_id: current_user.id
+      if @post.save
+        render "show.json.jbuilder"
+      else
+        render json: {errors: @post.errors.full_messages}, status: :bad_request
+      end
+    @rating.user_wine.save
     render "show.json.jb"
   end
 
