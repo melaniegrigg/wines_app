@@ -1,6 +1,5 @@
 {
-  id: @rating.id,
+  vintner: @rating.vintner,
   rating: @rating.rating,
-  notes: @rating.notes,
-  vintner: @rating.vintner
+  notes: @rating.notes
 }
