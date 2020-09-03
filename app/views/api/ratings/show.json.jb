@@ -1,5 +1,6 @@
 {
   vintner: @rating.vintner,
   rating: @rating.rating,
-  notes: @rating.notes
+  notes: @rating.notes,
+  # user: current_user.id
 }

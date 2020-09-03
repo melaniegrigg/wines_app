@@ -14,7 +14,7 @@ class Api::RatingsController < ApplicationController
       vintner: params[:vintner],
       rating: params[:rating],
       notes: params[:notes],
-      # user_id: current_user.id
+      user_id: current_user.id
     )
       if @rating.save
         render "show.json.jb"
