@@ -1,6 +1,6 @@
 class Api::RatingsController < ApplicationController
   def index
-    @ratings = Rating.all
+    @ratings = current_user.ratings
     render "index.json.jb"
   end
 

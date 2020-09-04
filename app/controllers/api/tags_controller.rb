@@ -1,6 +1,9 @@
 class Api::TagsController < ApplicationController
   def index
-    @tags = Tag.all
+    @tags1 = Tag.where(type_id: 1)
+    @tags2 = Tag.where(type_id: 2)
+    @tags3 = Tag.where(type_id: 3)
+    @tags4 = Tag.where(type_id: 4)
     render 'index.json.jb'
   end
 
