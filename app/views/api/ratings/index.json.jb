@@ -1,6 +1,7 @@
 @ratings.map do |rating| 
 {
   user: current_user.id,
+  id: rating.id,
   rating: rating.rating,
   notes: rating.notes,
   vintner: rating.vintner,

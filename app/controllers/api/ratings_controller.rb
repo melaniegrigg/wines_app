@@ -1,4 +1,5 @@
 class Api::RatingsController < ApplicationController
+  before_action :authenticate_user, only: [:create, :update, :destroy]
   def index
     @ratings = current_user.ratings
     render "index.json.jb"
@@ -28,7 +29,6 @@ class Api::RatingsController < ApplicationController
     @rating.vintner = params[:vintner] || @rating.vintner
     @rating.rating = params[:rating] || @rating.rating
     @rating.notes = params[:notes] || @rating.notes
-    @rating.user_id = current_user.id
     if @rating.save
       render "show.json.jb"
     else
@@ -37,10 +37,10 @@ class Api::RatingsController < ApplicationController
   end
 
   def destroy
-    @rating = Rating.current_rating.id
+    @rating = Rating.find_by(id: params[:id])
     @rating.destroy
 
-    render json: {message: "Rating successfully destroyed from databasea"}
+    render json: {message: "Rating successfully destroyed from database"}
   end
 
 end
