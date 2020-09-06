@@ -1,1 +1,25 @@
-[@tags1, @tags2, @tags3, @tags4]
+@funkys.map do |funky| 
+  {
+    tag: funky.tag,
+    id: funky.id
+  }
+end 
+@fruitys.map do |fruity| 
+  {
+    tag: fruity.tag,
+    id: fruity.id
+  }
+end 
+@earthys.map do |earthy| 
+  {
+    tag: earthy.tag,
+    id: earthy.id
+  }
+end 
+@sweets.map do |sweet| 
+  {
+    tag: sweet.tag,
+    id: sweet.id
+  }
+end 
+# [@funkys, @fruitys, @earthys, @sweets]
