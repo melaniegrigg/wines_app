@@ -1,4 +1,4 @@
-user = User.create!(email: "bob@bob.com", password: "password")
+user = User.create!(email: "sally@gmail.com", password: "password")
 
 Tag.create!([
   {tag: "leather", type_id: 1},
@@ -318,13 +318,13 @@ Type.create!([
   {name: "sweet"}
 ])
 Rating.create!([
-  {rating: "4.2", notes: "plum, black cherry, tart acidity, grippy tannins, smooth long finish", vintner: "waxed bat, malbec, cabernet sauvingon, merlot blend 2019", user_id: nil, wine_id: nil},
-  {rating: "4.0", notes: "not really a wine, a malt liquor ... for refined pallets only", vintner: "mad dog ", user_id: nil, wine_id: nil},
+  {rating: "4.2", notes: "plum, black cherry, tart acidity, grippy tannins, smooth long finish", vintner: "waxed bat, malbec, cabernet sauvingon, merlot blend 2019", user_id: user.id, wine_id: nil},
+  {rating: "4.0", notes: "not really a wine, a malt liquor ... for refined pallets only", vintner: "mad dog ", user_id: user.id, wine_id: nil},
   {rating: "4.0", notes: "great", vintner: "boones farm", user_id: nil, wine_id: nil},
-  {rating: "4.0", notes: "sparkling white", vintner: "roederrer estates", user_id: nil, wine_id: nil},
-  {rating: "4.0", notes: "sparkling white", vintner: "roederrer estates", user_id: nil, wine_id: nil},
+  {rating: "4.0", notes: "sparkling white", vintner: "roederrer estates", user_id: user.id, wine_id: nil},
+  {rating: "4.0", notes: "sparkling white", vintner: "roederrer estates", user_id: user.id, wine_id: nil},
   {rating: "3.4", notes: "Strawberry, cranberry, grapefruit. Well balanced acidity. Bright and fresh. Nothing special but great french rose for the price", vintner: "Mas Fleurey Rose, Cotes de Provence", user_id: 1, wine_id: nil},
-  {rating: "5.0", notes: "Light, crisp red apples with hints of vanilla and toast. Bright acidity and delicate bubbles. Finishes pleasantly. Perfect Spanish Cava for summer!", vintner: "Spanish Cava", user_id: nil, wine_id: nil},
+  {rating: "5.0", notes: "Light, crisp red apples with hints of vanilla and toast. Bright acidity and delicate bubbles. Finishes pleasantly. Perfect Spanish Cava for summer!", vintner: "Spanish Cava", user_id: user.id, wine_id: nil},
   {rating: "1.0", notes: "my grandpa says this is a great wine", vintner: "winking owl ", user_id: 8, wine_id: nil},
   {rating: "3.4", notes: "Red Cherry on the nose with pepper. Hints of licorice with a chocolate finish. Mid sweetness. Needed a bit more acidity ", vintner: "zweigelt", user_id: 8, wine_id: nil},
   {rating: "3.5", notes: "lacking body and some character but really good bordeaux for the price point. hints of smoke and tart cherry", vintner: "Château la Gabarre Bordeaux Supérieur 2015", user_id: 9, wine_id: nil},
